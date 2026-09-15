@@ -47,6 +47,11 @@
     border-bottom: 1px solid var(--line);
   }
   .topnav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+  .topnav .brand-group { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  .topnav .brand-logo-link { flex: 0 0 auto; display: inline-flex; align-items: center; }
+  .topnav .brand-logo { height: 22px; width: auto; display: block; }
+  .topnav .brand-logo-text { font-size: 13px; font-weight: 700; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; padding-right: 12px; border-right: 1px solid var(--line); }
+  .topnav .brand-logo-text:hover { color: var(--green-deep); }
   .topnav .brand { font-weight: 700; font-size: 15px; color: var(--green-deep); white-space: nowrap; letter-spacing: 0.5px; }
   .topnav .links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
   .topnav .links::-webkit-scrollbar { display: none; }
@@ -163,6 +168,18 @@
   .event-card .register { margin-top: auto; }
   .event-note { margin-top: 22px; font-size: 13px; color: var(--muted); background: var(--tint); padding: 14px 18px; border-radius: 8px; }
 
+  /* ---- broadcasts ---- */
+  .broadcast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .broadcast-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; display: flex; flex-direction: column; }
+  .broadcast-card .tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700; color: var(--vermi); background: var(--tint-r); border-radius: 999px; padding: 3px 11px; margin-bottom: 10px; }
+  .broadcast-card h3 { font-size: 16px; color: var(--green-deep); margin-bottom: 4px; line-height: 1.5; }
+  .broadcast-card .host { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+  .broadcast-card .status { font-size: 12.5px; color: var(--ink); background: var(--tint); border-radius: 6px; padding: 6px 10px; margin-bottom: 12px; }
+  .broadcast-card .status.tbd { color: var(--muted); font-style: italic; }
+  .broadcast-card .broadcast-link { margin-top: auto; font-size: 13.5px; font-weight: 600; color: var(--muted); text-decoration: none; border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px; text-align: center; cursor: default; }
+  .broadcasts-note { margin-top: 22px; font-size: 13px; color: var(--muted); background: var(--tint); padding: 14px 18px; border-radius: 8px; }
+  @media (max-width: 860px) { .broadcast-grid { grid-template-columns: 1fr; } }
+
   /* ---- excerpt ---- */
   .excerpt-box {
     background: #fff; border: 1px solid var(--line); border-radius: 12px;
@@ -198,13 +215,17 @@
 
 <nav class="topnav">
   <div class="wrap">
-    <div class="brand brand-title">小口小口吃京都</div>
+    <div class="brand-group">
+      <a class="brand-logo-link brand-logo-text" href="https://www.sandsbook.com/" target="_blank" rel="noopener">散冊出版</a>
+      <div class="brand brand-title">小口小口吃京都</div>
+    </div>
     <div class="links" id="navLinks">
       <a href="#top">首頁</a>
       <a href="#intro">關於本書</a>
       <a href="#author">作者介紹</a>
       <a href="#buy">購買通路</a>
       <a href="#events">實體活動</a>
+      <a href="#broadcasts">通告節目</a>
       <a href="#excerpt">書摘試閱</a>
     </div>
   </div>
@@ -320,7 +341,7 @@
     <div class="buy-grid">
       <div class="buy-card">
         <h3>紙本書</h3>
-        <div class="price">定價 NT$520（暫定）</div>
+        <div class="price">定價 NT$500元</div>
         <div class="buy-links">
           <a class="buy-link" href="#" data-store="博客來">博客來 <span class="arrow">→</span></a>
           <a class="buy-link" href="#" data-store="誠品線上">誠品線上 <span class="arrow">→</span></a>
@@ -412,6 +433,100 @@
   </div>
 </section>
 
+<section id="broadcasts">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="dot"></span>通告節目</div>
+      <h2>曲培棻老師 通告與節目一覽</h2>
+      <p class="sub">以下節目陸續錄製、播出中，收聽連結將於節目正式上架後更新於本頁面，歡迎持續關注。</p>
+    </div>
+
+    <div class="broadcast-grid">
+      <div class="broadcast-card">
+        <div class="tag">廣播＋YT</div>
+        <h3>中廣《超級美食家》</h3>
+        <div class="host">主持人｜王瑞瑤</div>
+        <div class="status">已錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">PODCAST</div>
+        <h3>《叫我康樂股長》</h3>
+        <div class="host">主持人｜劉婷婷</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">廣播＋YT・直播</div>
+        <h3>飛碟《生活彤樂會》</h3>
+        <div class="host">主持人｜蕭彤雯</div>
+        <div class="status">直播時間：10/1（四）09:20</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">廣播＋YT</div>
+        <h3>《飛碟早餐》</h3>
+        <div class="host">主持人｜唐湘龍</div>
+        <div class="status">已錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">PODCAST</div>
+        <h3>《犯罪浮世繪》</h3>
+        <div class="host">主持人｜戴伸峰</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">廣播</div>
+        <h3>中廣《范可欽的異想世界》</h3>
+        <div class="host">主持人｜范可欽</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">PODCAST</div>
+        <h3>《銷師的腦袋》</h3>
+        <div class="host">主持人｜曾光華</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">PODCAST</div>
+        <h3>《美人私房話》</h3>
+        <div class="host">主持人｜于美人</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">廣播＋YT</div>
+        <h3>中廣《週末生活通》</h3>
+        <div class="host">主持人｜趙婷</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">廣播</div>
+        <h3>中廣《蔣公廚房》</h3>
+        <div class="host">主持人｜蔣偉文</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+      <div class="broadcast-card">
+        <div class="tag">PODCAST</div>
+        <h3>《馬力歐陪你喝一杯》</h3>
+        <div class="host">主持人｜馬力歐</div>
+        <div class="status">已排定錄製，播出日期待公布</div>
+        <a class="broadcast-link" aria-disabled="true">收聽連結・即將公布</a>
+      </div>
+    </div>
+
+    <div class="broadcasts-note">
+      節目播出／上架後，將在此頁面補上實際收聽連結；洽談中的通告若確認排入，也會在此更新。
+    </div>
+  </div>
+</section>
+
 <section id="excerpt">
   <div class="wrap">
     <div class="sec-head" style="text-align:center;">
@@ -456,7 +571,7 @@
 
 <script>
   // active nav highlight on scroll
-  const sections = ["top","intro","author","buy","events","excerpt"].map(id => document.getElementById(id));
+  const sections = ["top","intro","author","buy","events","broadcasts","excerpt"].map(id => document.getElementById(id));
   const links = Array.from(document.querySelectorAll('#navLinks a'));
   function onScroll() {
     let current = sections[0].id;
